@@ -1,8 +1,8 @@
-import requests
 import shared
+from security import safe_requests
 
 def handler(event, context):
-  response = requests.get(shared.get_url(), stream=True)
+  response = safe_requests.get(shared.get_url(), stream=True)
 
   print(response.status_code)
 
