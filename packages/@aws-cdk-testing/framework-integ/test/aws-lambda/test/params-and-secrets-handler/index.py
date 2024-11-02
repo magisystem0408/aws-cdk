@@ -8,12 +8,12 @@ def handler(event, context):
 
     # request to parameter store
     parameter_url = 'http://localhost:8080/systemsmanager/parameters/get?name=email_url'
-    response = requests.get(parameter_url, headers=headers)
+    response = requests.get(parameter_url, headers=headers, timeout=60)
     print(f'response status code from HTTP for parameters request was {response.status_code}')
     print(f'response json is {response.json()}')
 
     # request to secrets manager
     secrets_url = 'https://localhost:8080/secretsmanager/get?secretId=MySecret'
-    response = requests.get(secrets_url, headers=headers)
+    response = requests.get(secrets_url, headers=headers, timeout=60)
     print(f'response status code from HTTP for secrets request was {response.status_code}')
     print(f'response json is {response.json()}')
