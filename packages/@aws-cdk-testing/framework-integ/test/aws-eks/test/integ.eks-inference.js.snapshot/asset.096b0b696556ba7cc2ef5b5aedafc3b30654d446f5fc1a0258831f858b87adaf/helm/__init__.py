@@ -141,7 +141,7 @@ def get_chart_from_oci(tmpdir, repository = None, version = None):
     while retry > 0:
         try:
             logger.info(cmnd)
-            output = subprocess.check_output(cmnd, stderr=subprocess.STDOUT, cwd=tmpdir, shell=True)
+            output = subprocess.check_output(cmnd, stderr=subprocess.STDOUT, cwd=tmpdir, shell=False)
             logger.info(output)
 
             # effectively returns "$tmpDir/$lastPartOfOCIUrl", because this is how helm pull saves OCI artifact.
